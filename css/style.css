@@ -1,0 +1,400 @@
+/* ======================= ANIMATIONS ======================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8));
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes scale-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* ======================= CARD STYLES ======================= */
+.weather-card {
+  background: linear-gradient(135deg, #fbbf24 0%, #fb923c 50%, #38bdf8 100%);
+  background-size: 200% 200%;
+  color: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 1px rgba(255, 255, 255, 0.3) inset,
+    0 0 40px rgba(59, 130, 246, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.weather-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: float 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.weather-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 
+    0 40px 80px rgba(0, 0, 0, 0.25),
+    0 0 2px rgba(255, 255, 255, 0.4) inset,
+    0 0 60px rgba(59, 130, 246, 0.2);
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.1),
+    0 0 1px rgba(59, 130, 246, 0.2) inset,
+    0 0 30px rgba(59, 130, 246, 0.08);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.7s ease-out;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.info-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+  animation: float 5s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+.info-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 
+    0 35px 70px rgba(0, 0, 0, 0.15),
+    0 0 2px rgba(59, 130, 246, 0.3) inset,
+    0 0 50px rgba(59, 130, 246, 0.12);
+}
+
+/* ======================= CONTAINER STYLES ======================= */
+.main-container {
+  animation: slideInDown 0.5s ease-out;
+}
+
+.header-section {
+  animation: slideInDown 0.6s ease-out 0.1s both;
+}
+
+.search-section {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.weather-section {
+  animation: fadeInUp 0.7s ease-out 0.3s both;
+}
+
+.forecast-section {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* ======================= INPUT & BUTTON STYLES ======================= */
+.input-field {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.input-field:focus {
+  background: white;
+  border-color: #3b82f6;
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.4),
+    inset 0 0 15px rgba(59, 130, 246, 0.15),
+    0 4px 20px rgba(0, 0, 0, 0.12);
+  transform: scale(1.02);
+}
+
+.input-field:hover {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+}
+
+.btn-primary {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  overflow: hidden;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.5);
+  letter-spacing: 1px;
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ======================= ERROR & ALERT STYLES ======================= */
+.error-message {
+  animation: slideInDown 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  border-left: 5px solid #ef4444;
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.2);
+}
+
+.weather-alert {
+  animation: slideInDown 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  border-left: 5px solid #dc2626;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.25);
+  animation: pulse-glow 2.5s ease-in-out infinite, slideInDown 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+/* ======================= LOADING STATE ======================= */
+.loading {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2) 25%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.2) 75%);
+  background-size: 1000px 100%;
+}
+
+.spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ======================= FORECAST CARD STYLES ======================= */
+.forecast-card {
+  animation: fadeInUp 0.5s ease-out both;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  backdrop-filter: blur(15px);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.forecast-card:hover {
+  transform: translateY(-16px) scale(1.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* ======================= RESPONSIVE UTILITIES ======================= */
+@media (max-width: 768px) {
+  .weather-card,
+  .info-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .weather-card,
+  .info-card {
+    padding: 1.25rem;
+  }
+  
+  .btn-primary {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .weather-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .forecast-card:hover {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-card,
+  .info-card {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #temperature {
+    font-size: 3.5rem;
+  }
+}
+
+/* ======================= TEXT EFFECTS ======================= */
+.text-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ======================= ADVANCED EFFECTS ======================= */
+body {
+  transition: all 0.8s ease-out;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ======================= SMOOTH SCROLLING ======================= */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+/* ======================= FOCUS STYLES ======================= */
+*:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+button:focus-visible {
+  outline-offset: 4px;
+}
+
+/* ======================= TRANSITIONS ======================= */
+button, input, select, textarea {
+  transition: all 0.3s ease;
+}
+
+/* ======================= ENHANCED TYPOGRAPHY ======================= */
+h1, h2 {
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* ======================= FORECAST HEADING ======================= */
+.forecast-section h2 {
+  animation: glow-pulse 3s ease-in-out infinite;
+  font-size: clamp(2rem, 8vw, 3.75rem);
+}
