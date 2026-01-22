@@ -223,7 +223,7 @@ Weather_Project/
 
 **Rajat Nayak**
 - GitHub: [@rajatnayak15](https://github.com/rajatnayak15)
-- Repository: [Weather_Project](https://github.com/rajatnayak15/Weather_Project)
+- Repository: [Weather_Project](https://github.com/rajatnayiak15/Weather_Project)
 
 ---
 
